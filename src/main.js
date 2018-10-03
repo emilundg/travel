@@ -5,6 +5,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 import router from './router';
 import VueFirestore from 'vue-firestore';
+import VModal from 'vue-js-modal'
+
+Vue.use(VModal);
 
 Vue.use(VueFirestore);
 

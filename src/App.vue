@@ -11,6 +11,46 @@
 </script>
 
 <style lang="scss">
+  .v-spinner {
+    position: absolute;
+    top: 50vh;
+    left: 47.5vw;
+  }
+
+  input[type="file"] {
+    display: none;
+  }
+
+  form {
+    margin: 0 auto;
+  }
+
+  .fileInput {
+    span {
+      float: left;
+      opacity: 0.7;
+    }
+    img {
+      height: 17px;
+      float: right;
+      margin-right: 8px;
+    }
+    max-height: 38px;
+    overflow: hidden;
+    width: 100%;
+    border: 1px solid #ced4da;
+    padding: .375rem .75rem;
+  }
+
+  legend {
+    text-align: left;
+    font-size: inherit;
+  }
+
+  .v--modal {
+    text-align: inherit;
+  }
+
   .list-group-item {
     border: none;
   }
@@ -30,11 +70,17 @@
     background-color: rgba(255, 209, 212, 1.0);
   }
 
-  input {
+  input,
+  .fileInput {
     border-radius: 50px !important;
   }
 
   .btn {
+    text-transform: uppercase;
+    >img {
+      max-width: 18px;
+      margin-right: 8px;
+    }
     min-width: 100px;
     border-radius: 50px;
   }
