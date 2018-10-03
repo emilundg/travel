@@ -62,4 +62,14 @@
     -moz-backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
   }
+
+  .invalid-feedback {
+    width: 100%;
+    margin-top: .25rem;
+    color: #dc3545;
+  }
+
+  .card {
+    border: none;
+  }
 </style>

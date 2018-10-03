@@ -5,7 +5,7 @@
 
         <b-navbar-brand href="#">Activinder</b-navbar-brand>
 
-        <b-navbar-brand href="#">{{this.hotel}}</b-navbar-brand>
+        <b-navbar-brand href="#">{{ hotel }}</b-navbar-brand>
 
         <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
         <b-collapse is-nav id="nav_collapse">
@@ -21,10 +21,13 @@
         <b-card class="col-md-4 col-sm-8 p-5 m-5">
           <h2 class="m-5">Welcome to Activinder!</h2>
           <!-- Using components -->
-          <b-input prepend="Username" v-model="hotelInput" placeholder="Enter hotel" class="mb-3">
-          </b-input>
 
-          <b-button variant="outline-success" @click="submitHotel()">Go!</b-button>
+          <b-form>
+            <b-input prepend="Username" v-model="hotelInput" placeholder="Enter hotel" class="mb-3">
+            </b-input>
+            <p style="color: #dc3545; font-size: 80%; margin-top: 0.25rem;"> {{ this.errorMessage }} </p>
+            <b-button variant="outline-success" @click="submitHotel()">Go!</b-button>
+          </b-form>
         </b-card>
       </div>
     </b-container>
@@ -32,47 +35,11 @@
     <b-container v-if="tab === 1" class="container-fluid" fluid>
 
       <div class="row">
-        <div class="col-lg-4">
-          <b-card title="Golf with John" img-src="https://www.ottawatourism.ca/wp-content/uploads/2014/11/Ottawa-Golf.jpg" img-alt="Image" img-top tag="article" class="m-5">
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the bulk of the card's content.
-            </p>
-            <b-button href="#" variant="outline-primary">Contact</b-button>
-          </b-card>
-        </div>
 
-        <div class="col-lg-4">
-          <b-card title="Tennis with Emil" img-src="https://bloximages.newyork1.vip.townnews.com/southbendtribune.com/content/tncms/assets/v3/editorial/1/21/1216bbb5-8e12-5dc4-8674-329468528375/5af81423deea5.image.jpg?resize=1200%2C800" img-alt="Image" img-top
-            tag="article" class="m-5">
+        <div class="col-lg-4" v-for="item in activities" :key="1">
+          <b-card :title="item.title" :img-src="item.imgSrc" img-alt="Image" img-top tag="article" class="m-5">
             <p class="card-text">
-              Some quick example text to build on the card title and make up the bulk of the card's content.
-            </p>
-            <b-button href="#" variant="outline-primary">Contact</b-button>
-          </b-card>
-        </div>
-
-        <div class="col-lg-4">
-          <b-card title="Football with Tom" img-src="https://www.presstelegram.com/wp-content/uploads/2018/01/xxxx_spo_ocr-l-soccer-generic-stock-0013.jpg?w=620" img-alt="Image" img-top tag="article" class="m-5">
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the bulk of the card's content.
-            </p>
-            <b-button href="#" variant="outline-primary">Contact</b-button>
-          </b-card>
-        </div>
-
-        <div class="col-lg-4">
-          <b-card title="Gocarting with group" img-src="https://simracewaydrivingschool.com/wp-content/uploads/2016/12/30313610826-26681396-1.jpg" img-alt="Image" img-top tag="article" class="m-5">
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the bulk of the card's content.
-            </p>
-            <b-button href="#" variant="outline-primary">Contact</b-button>
-          </b-card>
-        </div>
-
-        <div class="col-lg-4">
-          <b-card title="Pub crawl" img-src="https://static.vinepair.com/wp-content/uploads/2017/06/ind-internal.jpg" img-alt="Image" img-top tag="article" class="m-5">
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the bulk of the card's content.
+              {{item.description}}
             </p>
             <b-button href="#" variant="outline-primary">Contact</b-button>
           </b-card>
@@ -84,6 +51,18 @@
 </template>
 
 <script>
+  import Firebase from 'firebase/app'
+  import 'firebase/firestore'
+
+  var config = {
+    apiKey: "AIzaSyAyUdMQx43tJJk6gJj19xGOknuVKFF9QAk",
+    authDomain: "activityfinder-1538566316348.firebaseapp.com",
+    databaseURL: "https://activityfinder-1538566316348.firebaseio.com",
+    projectId: "activityfinder-1538566316348",
+    storageBucket: "activityfinder-1538566316348.appspot.com",
+    messagingSenderId: "607548876330"
+  };
+
   export default {
     name: 'app',
     components: {},
@@ -91,14 +70,33 @@
       return {
         tab: 0,
         hotel: '',
-        hotelInput: ''
+        hotelInput: '',
+        error: false,
+        errorMessage: '',
+        activities: []
       }
     },
-    created() {},
+    created() {
+      if (!Firebase.apps.length) {
+        Firebase.initializeApp(config)
+      }
+      Firebase.firestore().settings({
+        timestampsInSnapshots: true
+      });
+
+    },
     methods: {
-      submitHotel() {
-        this.hotel = this.hotelInput
-        this.changeTab(1);
+      async submitHotel() {
+        await this.$binding("act", Firebase.firestore().collection(this.hotelInput))
+          .then((act) => {
+            if (act.length === 0) {
+              this.errorMessage = 'No hotel activities found!'
+            } else {
+              this.activities = act
+              this.hotel = this.hotelInput
+              this.changeTab(1);
+            }
+          })
       },
       changeTab(tab) {
         this.tab = 1
