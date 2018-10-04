@@ -85,19 +85,19 @@
       </div>
 
       <div class="row mt-4">
-        <div class="category-header__left col-lg-2">
+        <div class="category-header__left col-7 col-sm-4 col-md-3 col-lg-2">
           Current Activities
           <hr>
         </div>
-        <div class="col-lg-9"></div>
-        <div class="category-header__right text-button col-lg-1">
+        <div class="col-2 col-sm-6 col-md-8 col-lg-9"></div>
+        <div class="category-header__right text-button col-3 col-sm-2 col-md-1 col-lg-1">
           <a @click="show()" variant="outline-primary">ADD</a>
           <hr>
         </div>
       </div>
 
       <div class="row mt-4" style="justify-content: flex-start;">
-        <div class="col-lg-3" v-for="item in activities" :key="1">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3" v-for="item in activities" :key="1">
           <b-card class="mb-4">
             <div class="card-img-top" v-bind:style="{ backgroundImage: 'url(' + item.imgSrc + ')' }"></div>
             <div class="card-body-content">
