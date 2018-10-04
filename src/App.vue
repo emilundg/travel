@@ -11,6 +11,13 @@
 </script>
 
 <style lang="scss">
+  .navbar-brand__center {
+    position: absolute;
+    width: 50px;
+    left: 50%;
+    margin-left: -25px;
+  }
+
   .v-spinner {
     position: absolute;
     top: 50vh;

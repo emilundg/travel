@@ -5,7 +5,7 @@
 
         <b-navbar-brand href="#">Activinder</b-navbar-brand>
 
-        <b-navbar-brand href="#">{{ hotel }}</b-navbar-brand>
+        <b-navbar-brand class="navbar-brand__center" href="#">{{ hotel }}</b-navbar-brand>
 
         <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
         <b-collapse is-nav id="nav_collapse">
@@ -91,7 +91,7 @@
             <p class="card-text">
               {{item.description}}
             </p>
-            <b-button href="#" variant="outline-primary">Contact</b-button>
+            tel: <a :href="'tel:' + item.contact"> {{item.contact }} </a>
           </b-card>
         </div>
       </div>
