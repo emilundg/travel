@@ -11,6 +11,39 @@
 </script>
 
 <style lang="scss">
+  @import url('https://fonts.googleapis.com/css?family=Montserrat');
+  .category-header__left {
+    opacity: 0.56;
+    text-align: left;
+  }
+
+  .landing-page {
+  }
+
+  .button-middle {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .font-bold {
+    font-weight: bold;
+  }
+
+  .category-header__right {
+    text-align: right;
+  }
+
+  .text-button {
+    color: #007bff;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .icon__action {
+    height: 34px;
+  }
+
   .navbar-brand__center {
     position: absolute;
     width: 50px;
@@ -63,7 +96,11 @@
   }
 
   .card-img-top {
-    height: 150px;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 84%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 84%, 0% 100%);
+    background-size: cover;
+    background-position: center;
+    height: 200px;
   }
 
   .bg-light {
@@ -71,10 +108,14 @@
   }
 
   .container-fluid {
-    min-height: 91vh;
-    border: 20px solid white;
-    border-radius: 45px;
-    background-color: rgba(255, 209, 212, 1.0);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12) inset;
+    background-color: rgba(250, 250, 250, 1);
+    min-height: 90vh;
+  }
+
+  .container-fluid,
+  .navbar {
+    padding: 20px 50px;
   }
 
   input,
@@ -93,7 +134,7 @@
   }
 
   #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
@@ -122,7 +163,29 @@
     color: #dc3545;
   }
 
+  .card-body-content {
+    text-align: left;
+    padding: 30px;
+  }
+
+  .card-text-contact {
+    position: absolute;
+    bottom: 15px;
+  }
+
+  .card-text {
+    font-size: small;
+    color: rgba(0, 0, 0, 0.56);
+  }
+
+  .card-body {
+    padding: 0px;
+  }
+
   .card {
-    border: none;
+    height: 25rem;
+    max-width: 20rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    border:none;
   }
 </style>
