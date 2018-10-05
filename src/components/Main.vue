@@ -1,14 +1,14 @@
 <template>
   <div id="app">
     <div>
-      <b-navbar class="b-navbar" toggleable="md" type="light" variant="light">
+      <b-navbar v-if="tab !== 0" class="b-navbar" toggleable="md" type="light" variant="light">
 
         <b-navbar-brand class="navbar-brand" href="#">Activinder</b-navbar-brand>
 
         <b-navbar-brand class="navbar-brand__center" href="#">{{ hotel }}</b-navbar-brand>
 
         <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
-        <b-collapse is-nav id="nav_collapse">
+        <b-collapse  is-nav id="nav_collapse">
           <b-navbar-nav class="ml-auto">
             <b-nav-item class="button" v-if="tab !== 0" v-bind:active="tab === 1" v-on:click="tab = 1" href="#">Activities</b-nav-item>
           </b-navbar-nav>
@@ -18,8 +18,8 @@
 
     <b-container v-if="tab === 0" class="container-fluid landing-page" fluid>
       <div class="row">
-        <b-card class="col-10 col-sm-8 col-md-8 col-lg-4 m-5 pb-5">
-          <h2 class="m-5">Welcome to Activinder!</h2>
+        <div class="col-lg-4">
+          <h2 class="m-5 landing-page-header">Activinder</h2>
           <div class="card-body-content">
           <b-form>
             <b-input prepend="Username" v-model="hotelInput" placeholder="Enter hotel" class="mb-4">
@@ -28,7 +28,7 @@
             <b-button class="button-middle" variant="outline-success" @click="submitHotel">Go!</b-button>
           </b-form>
           </div>
-        </b-card>
+        </div>
       </div>
     </b-container>
 

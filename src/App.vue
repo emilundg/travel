@@ -17,7 +17,13 @@
     text-align: left;
   }
 
+  .landing-page-header {
+    text-align: center;
+    font-size: 64px;
+  }
+
   .landing-page {
+    background: white !important;
   }
 
   .button-middle {
