@@ -17,9 +17,9 @@
     </div>
 
     <b-container v-if="tab === 0" class="container-fluid landing-page" fluid>
-      <div class="row m-5">
-        <div class="mt-5 col-sm-6 col-md-7 col-lg-6">
-          <img class="mb-4" src="/static/images/logo.svg"/>
+      <div class="row">
+        <div class="mt-5 col-12 col-sm-10 col-md-7 col-lg-6">
+          <img class="mb-4 logo" src="/static/images/logo.svg"/>
           <!-- <h2 class="mb-4 landing-page-header">Activinder</h2> -->
           <div class="card-body-content">
           <b-form>

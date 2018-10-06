@@ -13,7 +13,6 @@
 <style lang="scss">
   @import url('https://fonts.googleapis.com/css?family=Montserrat');
   @import url('https://fonts.googleapis.com/css?family=Poppins');
-
   .category-header__left {
     opacity: 0.56;
     text-align: left;
@@ -57,6 +56,11 @@
     img {
       width: 140px;
     }
+  }
+
+  .logo {
+    width: 60%;
+    height: auto;
   }
 
   .navbar-brand__center {
@@ -201,6 +205,6 @@
     height: 25rem;
     max-width: 20rem;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    border:none;
+    border: none;
   }
 </style>
