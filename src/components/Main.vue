@@ -3,7 +3,7 @@
     <div>
       <b-navbar v-if="tab !== 0" class="b-navbar" toggleable="md" type="light" variant="light">
 
-        <b-navbar-brand class="navbar-brand" href="#">Activinder</b-navbar-brand>
+        <b-navbar-brand class="navbar-brand" href="#"><img src="/static/images/logo.svg"/></b-navbar-brand>
 
         <b-navbar-brand class="navbar-brand__center" href="#">{{ hotel }}</b-navbar-brand>
 
@@ -17,15 +17,16 @@
     </div>
 
     <b-container v-if="tab === 0" class="container-fluid landing-page" fluid>
-      <div class="row">
-        <div class="col-lg-4">
-          <h2 class="m-5 landing-page-header">Activinder</h2>
+      <div class="row m-5">
+        <div class="mt-5 col-sm-6 col-md-7 col-lg-6">
+          <img class="mb-4" src="/static/images/logo.svg"/>
+          <!-- <h2 class="mb-4 landing-page-header">Activinder</h2> -->
           <div class="card-body-content">
           <b-form>
             <b-input prepend="Username" v-model="hotelInput" placeholder="Enter hotel" class="mb-4">
             </b-input>
             <p style="color: #dc3545; font-size: 80%; margin-top: 0.25rem;"> {{ this.errorMessage }} </p>
-            <b-button class="button-middle" variant="outline-success" @click="submitHotel">Go!</b-button>
+            <b-button class="button-middle" variant="outline-secondary" @click="submitHotel">Go!</b-button>
           </b-form>
           </div>
         </div>

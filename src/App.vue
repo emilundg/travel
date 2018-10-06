@@ -12,12 +12,15 @@
 
 <style lang="scss">
   @import url('https://fonts.googleapis.com/css?family=Montserrat');
+  @import url('https://fonts.googleapis.com/css?family=Poppins');
+
   .category-header__left {
     opacity: 0.56;
     text-align: left;
   }
 
   .landing-page-header {
+    font-family: 'Poppins', sans-serif;
     text-align: center;
     font-size: 64px;
   }
@@ -48,6 +51,12 @@
 
   .icon__action {
     height: 34px;
+  }
+
+  .navbar-brand {
+    img {
+      width: 140px;
+    }
   }
 
   .navbar-brand__center {
