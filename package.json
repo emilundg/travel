@@ -36,6 +36,7 @@
     "vue-router": "^3.0.1",
     "vue-spinner": "^1.0.3",
     "vue-template-compiler": "^2.5.3",
+    "vue2-google-maps": "^0.10.2",
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.4"
   }
